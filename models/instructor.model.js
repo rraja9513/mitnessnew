@@ -19,7 +19,6 @@ const instructorSchema=new Schema(
         },
         role:{
             type: String,
-            required: true,
         },
         profilepicture:{
             type: String,
