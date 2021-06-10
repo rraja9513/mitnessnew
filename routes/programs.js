@@ -57,7 +57,7 @@ router.route('/search').post((req, res) => {
         category:[
             {
                 categoryname:req.body.categoryname,
-                // cimage:req.files[1].path,
+                cimage:req.files[1].path,
                 caloriesburnt:req.body.caloriesburnt,
             }
         ]
@@ -87,53 +87,53 @@ router.route('/search').post((req, res) => {
   .then(() => res.json('Program added!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
-router.post('/adds',upload.array('images',2),(req,res,next)=>{
-  const classname = req.body.classname;
-  const sdateandtime=req.body.sdateandtime;
-  const image =req.files[0].path;
-  const description = req.body.description;
-  const duration =req.body.duration;
-  const totalexercises=req.body.totalexercises;
-  const chooseinstructor=req.body.chooseinstructor;
-  const category=req.body.category;
-  const access=req.body.access;
-  const price=req.body.price;
-  const exercise={
-      exercisename:req.body.exercisename,
-      video:req.body.video,
-      category:[
-          {
-              categoryname:req.body.categoryname,
-              cimage:req.files[1].path,
-              caloriesburnt:req.body.caloriesburnt,
-          }
-      ]
-  };
-  const instructorprofile=req.body.instructorprofile;
-  const pmaterial=req.body.pmaterial;
-  const status=req.body.status;
-  const subscribe=req.body.subscribe;
-  const newProgram=new Program({
-      classname,
-      sdateandtime,
-      image,
-      description,
-      duration,
-      totalexercises,
-      chooseinstructor,
-      category,
-      access,
-      price,
-      exercise,
-      instructorprofile,
-      pmaterial,
-      status,
-      subscribe
-  })
-  newProgram.save()
-.then(() => res.json('Program added!'))
-.catch(err => res.status(400).json('Error: ' + err));
-});
+// router.post('/adds',upload.array('images',2),(req,res,next)=>{
+//   const classname = req.body.classname;
+//   const sdateandtime=req.body.sdateandtime;
+//   const image =req.files[0].path;
+//   const description = req.body.description;
+//   const duration =req.body.duration;
+//   const totalexercises=req.body.totalexercises;
+//   const chooseinstructor=req.body.chooseinstructor;
+//   const category=req.body.category;
+//   const access=req.body.access;
+//   const price=req.body.price;
+//   const exercise={
+//       exercisename:req.body.exercisename,
+//       video:req.body.video,
+//       category:[
+//           {
+//               categoryname:req.body.categoryname,
+//               cimage:req.files[1].path,
+//               caloriesburnt:req.body.caloriesburnt,
+//           }
+//       ]
+//   };
+//   const instructorprofile=req.body.instructorprofile;
+//   const pmaterial=req.body.pmaterial;
+//   const status=req.body.status;
+//   const subscribe=req.body.subscribe;
+//   const newProgram=new Program({
+//       classname,
+//       sdateandtime,
+//       image,
+//       description,
+//       duration,
+//       totalexercises,
+//       chooseinstructor,
+//       category,
+//       access,
+//       price,
+//       exercise,
+//       instructorprofile,
+//       pmaterial,
+//       status,
+//       subscribe
+//   })
+//   newProgram.save()
+// .then(() => res.json('Program added!'))
+// .catch(err => res.status(400).json('Error: ' + err));
+// });
     router.post('/update/:id',upload.array('images',2),(req,res,next)=>{
     Program.findById(req.params.id)
       .then(program => {
@@ -151,7 +151,7 @@ router.post('/adds',upload.array('images',2),(req,res,next)=>{
             category:[
                 {
                     categoryname:req.body.categoryname,
-                    // cimage:req.files[1].path,
+                    cimage:req.files[1].path,
                     caloriesburnt:req.body.caloriesburnt,
                 }
             ]
