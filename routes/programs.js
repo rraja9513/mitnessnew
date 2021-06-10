@@ -90,7 +90,7 @@ router.route('/search').post((req, res) => {
 router.post('/adds',upload.single('image','cimage'),(req,res,next)=>{
   const classname = req.body.classname;
   const sdateandtime=req.body.sdateandtime;
-  const image =req.files[0].path;
+  const image =req.file.path;
   const description = req.body.description;
   const duration =req.body.duration;
   const totalexercises=req.body.totalexercises;
@@ -104,7 +104,7 @@ router.post('/adds',upload.single('image','cimage'),(req,res,next)=>{
       category:[
           {
               categoryname:req.body.categoryname,
-              cimage:req.files[1].path,
+              cimage:req.file.path,
               caloriesburnt:req.body.caloriesburnt,
           }
       ]
