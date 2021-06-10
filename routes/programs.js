@@ -87,10 +87,10 @@ router.route('/search').post((req, res) => {
   .then(() => res.json('Program added!'))
   .catch(err => res.status(400).json('Error: ' + err));
 });
-router.post('/adds',upload.single('image'),upload.single('cimage'),(req,res,next)=>{
+router.post('/adds',upload.array('images',2),(req,res,next)=>{
   const classname = req.body.classname;
   const sdateandtime=req.body.sdateandtime;
-  const image =req.file.path;
+  const image =req.files[0].path;
   const description = req.body.description;
   const duration =req.body.duration;
   const totalexercises=req.body.totalexercises;
@@ -104,7 +104,7 @@ router.post('/adds',upload.single('image'),upload.single('cimage'),(req,res,next
       category:[
           {
               categoryname:req.body.categoryname,
-              cimage:req.file.path,
+              cimage:req.files[1].path,
               caloriesburnt:req.body.caloriesburnt,
           }
       ]
