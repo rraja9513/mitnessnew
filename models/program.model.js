@@ -24,13 +24,12 @@ const programSchema=new Schema(
         exercise:{
             exercisename:{type:String},
             video:{type:String},
-            category:[
+            category:
                 {
                     categoryname:{type:String},
                     cimage:{type:String},
                     caloriesburnt:{type:String},
                 }
-            ]
         },
         totalexercises:{
             type:String,
