@@ -51,7 +51,7 @@ router.post('/add',upload.array('images',2),(req,res,next)=>{
         const category=req.body.category;
         const instructor={
             name:req.body.name,
-            iimg:req.files[1].path
+            // iimg:req.files[1].path
         };
         const duration =req.body.duration;
         const caloriesburnt=req.body.caloriesburnt;
@@ -91,7 +91,7 @@ router.post('/update/:id',upload.array('images',2),(req,res,next)=>{
         liveclass.category=req.body.category;
         liveclass.instructor={
             name:req.body.name,
-            iimg:req.files[1].path
+            // iimg:req.files[1].path
         };
         liveclass.duration =req.body.duration;
         liveclass.caloriesburnt=req.body.caloriesburnt;
