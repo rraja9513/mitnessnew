@@ -54,13 +54,12 @@ router.route('/search').post((req, res) => {
     const exercise={
         exercisename:req.body.exercisename,
         video:req.body.video,
-        category:[
+        category:
             {
                 categoryname:req.body.categoryname,
                 cimage:req.files[1].path,
                 caloriesburnt:req.body.caloriesburnt,
             }
-        ]
     };
     const instructorprofile=req.body.instructorprofile;
     const pmaterial=req.body.pmaterial;
@@ -148,13 +147,12 @@ router.route('/search').post((req, res) => {
         program.exercise={
             exercisename:req.body.exercisename,
             video:req.body.video,
-            category:[
+            category:
                 {
                     categoryname:req.body.categoryname,
                     cimage:req.files[1].path,
                     caloriesburnt:req.body.caloriesburnt,
                 }
-            ]
         };
         program.pmaterial=req.body.pmaterial;
         program.status=req.body.status;
