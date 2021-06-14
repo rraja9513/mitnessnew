@@ -50,7 +50,7 @@ router.route('/search').post((req, res) => {
       .then(programs => res.json(programs))
       .catch(err => res.status(400).json('Error: ' + err));
   });
-  router.post('/add',upload.array('images',2),(req,res,next)=>{
+  router.post('/add',upload.array('images',3),(req,res,next)=>{
     const classname = req.body.classname;
     const sdateandtime=req.body.sdateandtime;
     const image =req.files[0].path;
@@ -71,6 +71,10 @@ router.route('/search').post((req, res) => {
                 caloriesburnt:req.body.caloriesburnt,
             }
     };
+    const instructor={
+      name:req.body.name,
+      iimg:req.files[2].path
+    };
     const instructorprofile=req.body.instructorprofile;
     const pmaterial=req.body.pmaterial;
     const status=req.body.status;
@@ -87,6 +91,7 @@ router.route('/search').post((req, res) => {
         access,
         price,
         exercise,
+        instructor,
         instructorprofile,
         pmaterial,
         status,
