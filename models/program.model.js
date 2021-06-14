@@ -61,6 +61,10 @@ const programSchema=new Schema(
         status:{
             type:String,
         },
+        instructor:{
+            name:{type:String},
+            iimg:{type:String},
+        },
         subscribe:{
             type:String
         }

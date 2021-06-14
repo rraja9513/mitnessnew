@@ -30,6 +30,16 @@ router.route('/').post((req,res)=>{
     .then(programs=>res.json(programs))
     .catch(err=>res.status(400).json('Error:'+err));
 });
+router.route('/cuspgmlist').post((req,res)=>{
+  Program.find({},{_id:0,classname:true,image:true,description:true,duration:true,totalexercises:true,price:true})
+  .then(programs=>res.json(programs))
+  .catch(err=>res.status(400).json('Error:'+err));
+});
+router.route('/cuspgmbasic').post((req,res)=>{
+  Program.find({},{_id:0,classname:true,image:true,description:true,category:true,duration:true,price:true,totalexercises:true,exercise:{category:{caloriesburnt:true}},instructor:{name:true,iimg:true},instructorprofile:true})
+  .then(programs=>res.json(programs))
+  .catch(err=>res.status(400).json('Error:'+err));
+});      
 router.route('/:id').get((req, res) => {
     Program.findById(req.params.id)
       .then(program => res.json(program))
