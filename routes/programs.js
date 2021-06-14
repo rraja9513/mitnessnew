@@ -32,7 +32,7 @@ router.route('/').post((req,res)=>{
 });
 router.route('/cuspgmlist').post((req,res)=>{
   Program.find({},{_id:0,classname:true,image:true,description:true,duration:true,totalexercises:true,price:true})
-  .then(programs=>res.json(programs))
+  .then(ProgramResult=>res.json({ProgramResult}))
   .catch(err=>res.status(400).json('Error:'+err));
 });
 router.route('/cuspgmbasic').post((req,res)=>{
